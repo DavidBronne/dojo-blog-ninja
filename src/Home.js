@@ -3,7 +3,8 @@ import BlogsList from './BlogsList';
 
 const Home = () => {
     
-    const [blogs, setBlogs] = useState(null)
+    const [blogs, setBlogs] = useState(null);
+    const [isPending, setIsPending] = useState(true);
 
 
     useEffect(()=> {
@@ -12,10 +13,9 @@ const Home = () => {
         .then(res =>{
             return res.json()
         })
-        .then(data => {
-            
+        .then(data => {  
             setBlogs(data)
-            
+            setIsPending(false)
         })
         
         
@@ -23,6 +23,7 @@ const Home = () => {
 
     return ( 
         <div className="home">
+            { isPending && <div>Loading...</div>}
             { blogs && <BlogsList blogs={blogs}  /> }
          </div>
      );
