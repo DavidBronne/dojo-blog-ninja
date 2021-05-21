@@ -1,6 +1,9 @@
 const Create = () => {
     return ( 
-        <h2>Create a blog</h2>
+        <div className="create">
+            <h2>Create a blog</h2>
+        </div>
+        
      );
 }
  
